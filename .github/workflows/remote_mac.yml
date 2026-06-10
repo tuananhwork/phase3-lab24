@@ -1,0 +1,13 @@
+name: Remote to macOS
+on: workflow_dispatch # Cho phép kích hoạt thủ công bằng nút bấm
+
+jobs:
+  remote:
+    runs-on: macos-latest # Sử dụng phiên bản macOS mới nhất của GitHub
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Khởi tạo kết nối từ xa
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 360 # Máy sẽ giữ kết nối tối đa 6 tiếng
